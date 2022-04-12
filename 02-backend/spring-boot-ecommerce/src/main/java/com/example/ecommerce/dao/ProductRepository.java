@@ -14,4 +14,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // spring generate corresponding select statement behind
     Page<Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
 
+    // new query method for keyword searching
+    // below line, spring would generate select statements similar to : select * from product p
+    // p.name like concat('%', :name, '%')
+    Page<Product> findByNameContaining(@RequestParam("name") String name, Pageable pageable);
 }
