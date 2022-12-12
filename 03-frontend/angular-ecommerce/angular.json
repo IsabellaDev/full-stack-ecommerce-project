@@ -17,6 +17,19 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "core-js-pure/stable/array/from",
+              "core-js-pure/stable/instance/concat",
+              "core-js-pure/stable/instance/entries",
+              "core-js-pure/stable/instance/filter",
+              "core-js-pure/stable/json/stringify",
+              "core-js-pure/stable/number/is-integer",
+              "core-js-pure/stable/object/assign",
+              "core-js-pure/stable/url",
+              "core-js-pure/stable/symbol",
+              "core-js-pure/stable/reflect/construct",
+              "core-js-pure/stable/promise"
+            ],
             "outputPath": "dist/angular-ecommerce",
             "index": "src/index.html",
             "main": "src/main.ts",
