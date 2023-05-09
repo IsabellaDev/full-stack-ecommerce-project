@@ -32,8 +32,7 @@ public class OrderItem {
     @JoinColumn(name = "order_id")
     private Order order;
 
-
-    @OneToMany
-    private Set<Product> products;
+    @Column(name = "product_id")
+    private Long productId;
 
 }

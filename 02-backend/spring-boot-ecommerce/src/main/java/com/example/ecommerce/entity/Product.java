@@ -49,4 +49,6 @@ public class Product {
     @Column(name = "last_updated")
     @CreationTimestamp
     private Date lastUpdated;
+
+
 }
