@@ -6,11 +6,11 @@
                 <!-- loop over the collections of products -->
                 <div *ngFor="let product of products" class="col-md-3">
                     <div class="product-box">
-                        <a routerLink="/products/{{product.id}}">
+                        <a routerLink="/products/{{product.id}}/{{currentCategoryId}}">
                             <img src="{{ product.imageUrl }}" class="img-responsive">
                         </a>
 
-                        <a routerLink="/products/{{product.id}}">
+                        <a routerLink="/products/{{product.id}}/{{currentCategoryId}}">
                             <h1>{{ product.name }} </h1>
                         </a>
                         <div class="price">{{product.unitPrice | currency: 'CAD' }}</div>

@@ -5,6 +5,8 @@ import { Product } from 'src/app/common/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
+const PROD_ID = 'prodId';
+const CAT_ID = 'catId';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -13,12 +15,15 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailsComponent implements OnInit {
 
   product: Product = new Product();
+  categoryId: number;
 
   constructor(private productService: ProductService, 
               private cartService: CartService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.categoryId = +this.route.snapshot.paramMap.get(CAT_ID);
+    console.log("categoryID: ", this.categoryId);
     this.route.paramMap.subscribe(() => {
       this.listProductDetails();
     });
@@ -27,7 +32,8 @@ export class ProductDetailsComponent implements OnInit {
   listProductDetails() {
 
     // get the id param string, convert to a number 
-    const theProductId: number = Number(this.route.snapshot.paramMap.get('id'));
+    const theProductId: number = Number(this.route.snapshot.paramMap.get(PROD_ID));
+    console.log("product ID: ", theProductId);
 
     this.productService.getProduct(theProductId).subscribe(
       data => {

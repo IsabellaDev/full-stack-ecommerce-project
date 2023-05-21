@@ -28,8 +28,8 @@ import { OktaAuth } from '@okta/okta-auth-js';
 import myAppConfig from './config/my-app-config';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
-import { Order } from './common/order';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+
 
 const oktaConfig = Object.assign({
   onAuthRequired: (injector)=>{
@@ -52,17 +52,19 @@ function sendToLoginPage(oktaAuth: OktaAuth, injector: Injector) {
 
 const routes: Routes = [
 
+  // {path: 'register', component: RegisterComponent},
   { path: 'order-history', component: OrderHistoryComponent, canActivate: [ OktaAuthGuard ], 
-  data: {onAuthRequired: sendToLoginPage} },
+                            data: {onAuthRequired: sendToLoginPage} },
 
   { path: 'members', component: MembersPageComponent, canActivate: [ OktaAuthGuard ], 
-                     data: {onAuthRequired: sendToLoginPage} },
+                      data: {onAuthRequired: sendToLoginPage} },
   { path: 'login/callback', component: OktaCallbackComponent}, 
   { path: 'login', component: LoginComponent},
 
+
   { path: 'checkout', component: CheckoutComponent },
   { path: 'cart-details', component: CartDetailsComponent },
-  { path: 'products/:id', component: ProductDetailsComponent },
+  { path: 'products/:prodId/:catId', component: ProductDetailsComponent },
   { path: 'search/:keyword', component: ProductListComponent },
   { path: 'category/:id', component: ProductListComponent },
   { path: 'category', component: ProductListComponent },
