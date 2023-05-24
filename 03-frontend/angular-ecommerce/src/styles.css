@@ -390,10 +390,11 @@ input.au-input.au-input-xl{
  */
 
 .header-mobile{
-    position:absolute;
-    top:0;
-    left:0;
-    right:0
+
+    left:200px;
+    height:75px;
+    z-index:3;
+    
 }
 .header-mobile .header-mobile-bar{
     padding:15px 0;    background: #fff;
@@ -467,7 +468,8 @@ input.au-input.au-input-xl{
     z-index:20
 }
 .header-mobile .navbar-mobile .navbar-mobile-list{
-    background:#f8f8f8
+    background:#f8f8f8;
+    list-style: none;
 }
 .header-mobile .navbar-mobile .navbar-mobile-list>li>a{
     padding-left:15px!important
@@ -519,6 +521,7 @@ input.au-input.au-input-xl{
     padding:10% 15%!important
 }
 
+
 /* 
  * ----------------------------
  * Products List
@@ -547,12 +550,14 @@ input.au-input.au-input-xl{
     color:#0da8e4
 }
 .product-box h1{
+    display: block;
     font-size:18px;
     border-bottom:1px solid #ccc;
     padding-bottom:5px;
     font-weight:600;
     padding-top:12px;
-    margin-bottom:7px
+    margin-bottom:7px;
+    
 }
 .product-box h2{
     font-size:15px;
@@ -741,7 +746,7 @@ table.table.table-bordered th{
     background-color:#0da8e4!important;
     border-color:#0da8e4!important
 }
-a.primary-btn{
+.primary-btn{
     background:#05143f;
     padding:7px 20px;
     text-align:center;
@@ -751,7 +756,7 @@ a.primary-btn{
     font-size:14px;
     margin-top:5px
 }
-a.primary-btn:hover{
+.primary-btn:hover{
     background:#0da8e4;
     color:#fff
 }
@@ -805,6 +810,12 @@ footer ul li{
     .header-navbar ul li a{
         padding:25px 15px
     }
+    .header-desktop{
+        position:fixed;
+        top:0;
+        left:0;
+        height:90px
+    }
 }
 @media (max-width:1315px) and (min-width:992px){
     .header-navbar ul li a{
@@ -814,11 +825,15 @@ footer ul li{
     .header-navbar ul li a i{
         margin-right:5px
     }
+
 }
 
 @media (min-width:1200px){
     .container{
         max-width:1320px
+    }
+    .header-mobile{
+        display: none;
     }
 }
 
@@ -837,6 +852,10 @@ footer ul li{
     .header-wrap .account-item>.content{
         display:none
     }
+    .header-mobile{
+        display: none;
+    }
+
 }
 
 
@@ -868,26 +887,32 @@ footer ul li{
         justify-content:center
     }
      .au-input-xl{
-        min-width:350px
+        min-width:200px
     }
       .logo{
         text-align:center
     }
     .header-desktop{
-        position:relative;
+        position:fixed;
         top:0;
         left:0;
-        height:80px
+        height:90px
+        /* display: none; */
     }
     .header-wrap{
-        -webkit-box-orient:vertical;
+        /* -webkit-box-orient:vertical;
         -webkit-box-direction:normal;
         -webkit-flex-direction:column;
         -moz-box-orient:vertical;
         -moz-box-direction:normal;
         -ms-flex-direction:column;
-        flex-direction:column
+        flex-direction:column */
+        display: none;
     }
+    .header-mobile{
+        display: block;
+    }
+
     .header-button{
         margin-top:30px;
         width:100%;
@@ -946,6 +971,9 @@ footer ul li{
         .main-content.page-m{
         padding:10% 30% 10% 5%
     }
+    .header-mobile{
+        display: block;
+    }
     .header-mobile .navbar-mobile{
         display:none;
         position:absolute;
@@ -960,10 +988,10 @@ footer ul li{
         top:64px!important
     }
     .header-desktop{
-        position:relative;
+        position:fixed;
         top:0;
         left:0;
-        height:80px
+        height:90px
     }
     a.logo img{
         width:110px
@@ -980,7 +1008,7 @@ footer ul li{
         text-align:center
     }
     .product-box{
-        text-align:centerg
+        text-align:justify
     }
     .page-container{
         position:relative;
@@ -990,7 +1018,7 @@ footer ul li{
     .au-btn-submit{
         position:relative;
         right:10px;
-        min-width:85px;
+        min-width:80px;
         color:#fff;
         border:1px solid #205b8d;
         -webkit-border-radius:3px;

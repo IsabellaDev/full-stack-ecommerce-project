@@ -9,12 +9,11 @@
                         <a routerLink="/products/{{product.id}}/{{currentCategoryId}}">
                             <img src="{{ product.imageUrl }}" class="img-responsive">
                         </a>
-
-                        <a routerLink="/products/{{product.id}}/{{currentCategoryId}}">
+                        <div><a routerLink="/products/{{product.id}}/{{currentCategoryId}}" style="text-decoration: none;">
                             <h1>{{ product.name }} </h1>
-                        </a>
+                        </a></div>
                         <div class="price">{{product.unitPrice | currency: 'CAD' }}</div>
-                        <button (click)="addToCart(product)" class="btn btn-primary btn-sm">Add to Cart</button>
+                        <button (click)="addToCart(product)" class="primary-btn">Add to Cart</button>
                     </div>
                 </div>
 
@@ -28,36 +27,32 @@
         <!-- pagination -->
         <div class="footer-pagination">
             <div class="row">
-                <div class="col-md-6"></div>   
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-9" style="padding-left: 30%">
-                            
-                                <ngb-pagination [(page)]="thePageNumber"
-                                                [pageSize]="thePageSize"
-                                                [collectionSize]="theTotalElements"
-                                                [maxSize]="3"
-                                                [boundaryLinks]="true"
-                                                (pageChange)="listProducts()">
+                <div class="col-md-6"></div>
+                <div class="col-md-3">
+                    <div class="items" style="padding-left: 30%">
+                            <div>
+                            <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize"
+                                [collectionSize]="theTotalElements" [maxSize]="3" [boundaryLinks]="true"
+                                (pageChange)="listProducts()">
 
-                                </ngb-pagination>
-                            
-                            </div>
-
-                            <div class="col-md-3 mt-2" style="text-align: right;">
-                                <span class="mr-2"> Page Size </span>
-                                
-                                <select (change)="updatePageSize($any($event.target).value)">
-                                    <option selected="true">5</option>
-                                    <option>10</option>
-                                    <option>20</option>
-                                    <option>50</option>
-
-                                </select>
-                            </div>
+                            </ngb-pagination>
                         </div>
                     </div>
-                
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-3 mr-2" style="text-align: right;">
+                    <span> Page Size </span>
+
+                    <select (change)="updatePageSize($any($event.target).value)">
+                        <option selected="true">5</option>
+                        <option>10</option>
+                        <option>20</option>
+                        <option>50</option>
+
+                    </select>
+                </div>
             </div>
         </div>
     </div>
