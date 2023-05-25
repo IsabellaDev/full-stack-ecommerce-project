@@ -4,7 +4,7 @@ import { OktaAuth } from '@okta/okta-auth-js';
 
 import OktaSignIn from '@okta/okta-signin-widget';
 
-import myAppConfig from '../../config/my-app-config';
+// import myAppConfig from '../../config/my-app-config';
 
 @Component({
   selector: 'app-login',
@@ -16,15 +16,25 @@ export class LoginComponent implements OnInit {
   oktaSignIn: any;
   constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth) {
 
-    this.oktaSignIn = new OktaSignIn({
+/*     this.oktaSignIn = new OktaSignIn({
       logo: 'assets/images/logo.PNG',
       baseUrl: myAppConfig.oidc.issuer.split('/oauth2')[0],
       clientId: myAppConfig.oidc.clientId,
       redirectUri: myAppConfig.oidc.redirectUri,
       authParams: {
-        //pkce: true,
         issuer: myAppConfig.oidc.issuer,
         scopes: myAppConfig.oidc.scopes
+      }  
+      
+    }); */
+    this.oktaSignIn = new OktaSignIn({
+      logo: 'assets/images/logo.PNG',
+      baseUrl: oidc.issuer.split('/oauth2')[0],
+      clientId: oidc.clientId,
+      redirectUri: oidc.redirectUri,
+      authParams: {
+        issuer: oidc.issuer,
+        scopes: oidc.scopes
       }  
       
     });

@@ -25,7 +25,7 @@ import {
   OktaAuthGuard
 } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
-import myAppConfig from './config/my-app-config';
+//import myAppConfig from './config/my-app-config';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
@@ -38,7 +38,8 @@ const oktaConfig = Object.assign({
     // redirect user to custom login page
     router.navigate(['/login']);
   }
-}, myAppConfig.oidc);
+}, oidc);
+//}, myAppConfig.oidc);
 
 const oktaAuth = new OktaAuth(oktaConfig);
 
