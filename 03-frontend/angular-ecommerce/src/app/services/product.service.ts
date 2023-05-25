@@ -11,9 +11,9 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductService {
 
-  private baseUrl = environment.luv2shopApiUrl + '/products';
+  private baseUrl = process.env["environment.luv2shopApiUrl"] + '/products';
 
-  private categoryUrl = environment.luv2shopApiUrl + '/product-category';
+  private categoryUrl = process.env["environment.luv2shopApiUrl"] + '/product-category';
 
   constructor(private httpClient: HttpClient) { }
 

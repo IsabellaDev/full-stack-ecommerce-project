@@ -30,12 +30,12 @@ export class LoginComponent implements OnInit {
     }); */
     this.oktaSignIn = new OktaSignIn({
       logo: 'assets/images/logo.PNG',
-      baseUrl: oidc.issuer.split('/oauth2')[0],
-      clientId: oidc.clientId,
-      redirectUri: oidc.redirectUri,
+      baseUrl: process.env["oidc.issuer"].split('/oauth2')[0],
+      clientId: process.env["oidc.clientId"],
+      redirectUri: process.env["oidc.redirectUri"],
       authParams: {
-        issuer: oidc.issuer,
-        scopes: oidc.scopes
+        issuer: process.env["oidc.issuer"],
+        scopes: process.env["oidc.scopes"]
       }  
       
     });

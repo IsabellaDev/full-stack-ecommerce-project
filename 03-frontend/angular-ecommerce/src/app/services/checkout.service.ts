@@ -5,15 +5,16 @@ import { Observable } from 'rxjs';
 import { Purchase } from '../common/purchase';
 import { environment } from 'src/environments/environment';
 import { PaymentInfo } from '../common/payment-info';
+require('dotenv').config();
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckoutService {
 
-  private purchaseUrl = environment.luv2shopApiUrl + '/checkout/purchase';
+  private purchaseUrl = process.env["environment.luv2shopApiUrl"] + '/checkout/purchase';
 
-  private paymentIntentUrl = environment.luv2shopApiUrl + '/checkout/payment-intent';
+  private paymentIntentUrl = process.env["environment.luv2shopApiUrl"] + '/checkout/payment-intent';
 
   constructor(private httpClient: HttpClient) { }
 

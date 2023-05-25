@@ -2,14 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { OrderHistory } from '../common/order-history';
-import { environment } from 'src/environments/environment';
+//import { environment } from 'src/environments/environment';
+require('dotenv').config();
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderHistoryService {
 
-  private orderUrl = environment.luv2shopApiUrl + '/orders';
+  private orderUrl = process.env["environment.luv2shopApiUrl"] + '/orders';
 
   constructor(private httpClient: HttpClient) { }
 
