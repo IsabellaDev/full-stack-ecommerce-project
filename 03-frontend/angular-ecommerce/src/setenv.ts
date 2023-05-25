@@ -2,7 +2,7 @@ const { writeFile } = require('fs');
 const { argv } = require('yargs');
 
 // read environment variables from .env file
-require('dotenv').config({path: './environments/*'});
+require('dotenv').config();
 
 // read the command line arguments passed with yargs
 const environment = argv.environment;
