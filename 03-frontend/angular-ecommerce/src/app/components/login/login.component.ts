@@ -3,9 +3,9 @@ import { OKTA_AUTH, OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 
 import OktaSignIn from '@okta/okta-signin-widget';
+import { environment } from 'src/environments/environment';
 
-//import myAppConfig from '../../config/my-app-config';
-require('dotenv').config({ path: "./config/my-app-config" });
+
 
 @Component({
   selector: 'app-login',
@@ -17,25 +17,14 @@ export class LoginComponent implements OnInit {
   oktaSignIn: any;
   constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth) {
 
-/*     this.oktaSignIn = new OktaSignIn({
-      logo: 'assets/images/logo.PNG',
-      baseUrl: myAppConfig.oidc.issuer.split('/oauth2')[0],
-      clientId: myAppConfig.oidc.clientId,
-      redirectUri: myAppConfig.oidc.redirectUri,
-      authParams: {
-        issuer: myAppConfig.oidc.issuer,
-        scopes: myAppConfig.oidc.scopes
-      }  
-      
-    }); */
     this.oktaSignIn = new OktaSignIn({
       logo: 'assets/images/logo.PNG',
-      baseUrl: process.env["oidc.issuer"].split('/oauth2')[0],
-      clientId: process.env["oidc.clientId"],
-      redirectUri: process.env["oidc.redirectUri"],
+      baseUrl: environment.oidc.issuer.split('/oauth2')[0],
+      clientId: environment.oidc.clientId,
+      redirectUri: environment.oidc.redirectUri,
       authParams: {
-        issuer: process.env["oidc.issuer"],
-        scopes: process.env["oidc.scopes"]
+        issuer: environment.oidc.issuer,
+        scopes: environment.oidc.scopes
       }  
       
     });

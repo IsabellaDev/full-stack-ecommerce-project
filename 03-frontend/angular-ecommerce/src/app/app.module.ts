@@ -25,18 +25,17 @@ import {
   OktaAuthGuard
 } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
-//import myAppConfig from './config/my-app-config';
-require('dotenv').config();
+
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
-
+import { environment } from 'src/environments/environment';
 
 const oidc = {
-  clientId: process.env["oidc.clientId"],
-    issuer: process.env["oidc.issuer"], 
-    redirectUri: process.env["oidc.redirectUri"],
-    scopes: process.env["oidc.scopes"].split(",")
+  clientId: environment.oidc.clientId,
+    issuer: environment.oidc.issuer,
+    redirectUri: environment.oidc.redirectUri,
+    scopes: (environment.oidc.scopes)
 }
 const oktaConfig = Object.assign({
   onAuthRequired: (injector)=>{
@@ -46,7 +45,6 @@ const oktaConfig = Object.assign({
     router.navigate(['/login']);
   }
 }, oidc);
-//}, myAppConfig.oidc);
 
 const oktaAuth = new OktaAuth(oktaConfig);
 
