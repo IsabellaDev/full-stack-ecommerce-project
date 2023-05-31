@@ -3,16 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 
-console.log(process.env['oidc.clientId'])
+console.log(process.env['clientId'])
 export const environment = {
   production: false,
   luv2shopApiUrl: process.env['luv2shopApiUrl'],
   stripePublishableKey: process.env['stripePublishableKey'],
   oidc: {
-    clientId: process.env['oidc.clientId'],
-    issuer: process.env['oidc.issuer'], 
-    redirectUri: process.env['oidc.redirectUri'],
-    scopes: process.env['oidc.scopes'].split(",")
+    clientId: process.env['clientId'],
+    issuer: process.env['issuer'], 
+    redirectUri: process.env['redirectUri'],
+    scopes: process.env['scopes'].split(",")
   }
 };
 /*
