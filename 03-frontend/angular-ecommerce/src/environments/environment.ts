@@ -3,7 +3,6 @@
 // The list of file replacements can be found in `angular.json`.
 
 
-console.log(process.env['clientId'])
 export const environment = {
   production: false,
   luv2shopApiUrl: process.env['luv2shopApiUrl'],
