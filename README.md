@@ -1,4 +1,4 @@
 # full-stack-ecommerce-project
 
 Live App Link: 
-[Isabella's Bookstore](https://main--isabellashop.netlify.app)
+[Isabella's Bookstore](https://isabellashop.netlify.app)
